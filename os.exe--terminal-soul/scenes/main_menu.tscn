@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://yux0rqg82ee5"]
+
+[ext_resource type="Script" uid="uid://luesug4y4lcm" path="res://scripts/main_menu.gd" id="1_bqqt6"]
+[ext_resource type="FontFile" uid="uid://7m2p4oe6hcgn" path="res://fonts/ShareTechMono-Regular.ttf" id="1_ekxnf"]
+[ext_resource type="Shader" uid="uid://ovgdsbtj38qk" path="res://scripts/new_shader.gdshader" id="2_bqqt6"]
+[ext_resource type="FontFile" uid="uid://c0h3ryqxii3la" path="res://fonts/CutiveMono-Regular.ttf" id="3_wu84c"]
+[ext_resource type="AudioStream" uid="uid://cvvbikd3tgcti" path="res://sounds/01 Welcome to JR's.mp3" id="4_rtw2f"]
+[ext_resource type="AudioStream" uid="uid://bla66m265mexq" path="res://sounds/sound_7880.mp3" id="6_rtw2f"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wu84c"]
+shader = ExtResource("2_bqqt6")
+shader_parameter/scanline_count = 300.0
+shader_parameter/scanline_opacity = 0.15
+shader_parameter/rgb_shift = 0.002
+shader_parameter/screen_blink = 0.015
+shader_parameter/switch_on_pct = 1.0
+shader_parameter/bar_speed = 0.5
+shader_parameter/bar_opacity = 0.25
+shader_parameter/bar_height = 0.03
+
+[node name="MainMenu" type="Control" unique_id=502205234]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bqqt6")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=88983729]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
+[node name="TerminalText" type="RichTextLabel" parent="." unique_id=1772892208]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -860.0
+offset_top = -440.0
+offset_right = 860.0
+offset_bottom = 440.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("1_ekxnf")
+bbcode_enabled = true
+
+[node name="LogoText" type="RichTextLabel" parent="." unique_id=393541863]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -332.5
+offset_top = 155.0
+offset_right = 332.5
+offset_bottom = 277.0
+grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("3_wu84c")
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+
+[node name="MenuButtons" type="VBoxContainer" parent="." unique_id=133958213]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -226.5
+offset_top = -547.0
+offset_right = 226.5
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="BootButton" type="Button" parent="MenuButtons" unique_id=1661054757]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ekxnf")
+theme_override_font_sizes/font_size = 32
+text = "BOOT OS.EXE"
+
+[node name="ShutdownButton" type="Button" parent="MenuButtons" unique_id=1711049996]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "SHUTDOWN"
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="." unique_id=729414524]
+stream = ExtResource("4_rtw2f")
+autoplay = true
+bus = &"ReverbMenuMusic"
+
+[node name="VHS_Overlay" type="ColorRect" parent="." unique_id=1266122339]
+material = SubResource("ShaderMaterial_wu84c")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ShutdownSound" type="AudioStreamPlayer" parent="." unique_id=1564825602]
+stream = ExtResource("6_rtw2f")

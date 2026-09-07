@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://cq1shcjmgyoc0"]
+
+[node name="VirusDialog" type="PanelContainer" unique_id=1237154494]
+offset_left = 640.0
+offset_top = 800.0
+offset_right = 1280.0
+offset_bottom = 926.00085
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=912914433]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=1262984075]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="DialogText" type="Label" parent="VBoxContainer/MarginContainer" unique_id=2037403958]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer" unique_id=1130460503]
+layout_mode = 2
+theme_override_constants/margin_left = 484
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="NextButton" type="Button" parent="VBoxContainer/MarginContainer2" unique_id=163646993]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16

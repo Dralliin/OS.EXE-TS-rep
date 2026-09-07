@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c2xhysa8d02hp"
+path="res://.godot/imported/Poppy Playtime OST- Its Playtime (SlowedDaycore) (1).mp3-1de0258bc4e2d2068d4495d8455cf2a2.mp3str"
+
+[deps]
+
+source_file="res://sounds/Poppy Playtime OST- Its Playtime (SlowedDaycore) (1).mp3"
+dest_files=["res://.godot/imported/Poppy Playtime OST- Its Playtime (SlowedDaycore) (1).mp3-1de0258bc4e2d2068d4495d8455cf2a2.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

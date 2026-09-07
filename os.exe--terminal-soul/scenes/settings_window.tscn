@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://c4k0rdxmvyyvm"]
+
+[ext_resource type="Script" uid="uid://dmtpgt148dt6h" path="res://scripts/settings_window.gd" id="1_rtnku"]
+[ext_resource type="Texture2D" uid="uid://f00gedupbtna" path="res://icons/close_20dp_E3E3E3_FILL0_wght400_GRAD0_opsz20.png" id="2_h77l5"]
+
+[node name="SettingsWindow" type="Panel" unique_id=531011518]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -540.0
+offset_top = -295.0
+offset_right = 540.0
+offset_bottom = 295.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rtnku")
+
+[node name="Header" type="HBoxContainer" parent="." unique_id=438781708]
+layout_mode = 0
+offset_right = 1080.0
+offset_bottom = 25.0
+theme_override_constants/separation = 919
+
+[node name="TitleLabel" type="Label" parent="Header" unique_id=1046009676]
+layout_mode = 2
+text = "SYSTEM SETTINGS"
+
+[node name="CloseButton" type="TextureButton" parent="Header" unique_id=644513775]
+layout_mode = 2
+size_flags_horizontal = 8
+texture_normal = ExtResource("2_h77l5")
+
+[node name="MainContent" type="HBoxContainer" parent="." unique_id=1690862413]
+layout_mode = 0
+offset_top = 36.0
+offset_right = 1080.0
+offset_bottom = 572.0
+
+[node name="Sidebar" type="VBoxContainer" parent="MainContent" unique_id=740769181]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="DisplayTabButton" type="Button" parent="MainContent/Sidebar" unique_id=377135481]
+layout_mode = 2
+
+[node name="CustomTabButton" type="Button" parent="MainContent/Sidebar" unique_id=644430190]
+layout_mode = 2
+
+[node name="AboutTabButton" type="Button" parent="MainContent/Sidebar" unique_id=2014766623]
+layout_mode = 2
+
+[node name="TabContents" type="MarginContainer" parent="MainContent" unique_id=903707002]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 265
+theme_override_constants/margin_bottom = 0
+
+[node name="DisplayAudioTab" type="VBoxContainer" parent="MainContent/TabContents" unique_id=1466812130]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="VolumeLabel" type="Label" parent="MainContent/TabContents/DisplayAudioTab" unique_id=3163430]
+layout_mode = 2
+text = "System Volume"
+
+[node name="VolumeSlider" type="HSlider" parent="MainContent/TabContents/DisplayAudioTab" unique_id=1657295465]
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="GlitchLabel" type="Label" parent="MainContent/TabContents/DisplayAudioTab" unique_id=311410153]
+layout_mode = 2
+text = "CRT Scanline Strength"
+
+[node name="GlitchSlider" type="HSlider" parent="MainContent/TabContents/DisplayAudioTab" unique_id=1320871454]
+layout_mode = 2
+max_value = 0.5
+step = 0.01
+value = 0.12
+
+[node name="PersonalizationTab" type="VBoxContainer" parent="MainContent/TabContents" unique_id=457567431]
+layout_mode = 2
+theme_override_constants/separation = 36
+
+[node name="WallpaperLabel" type="Label" parent="MainContent/TabContents/PersonalizationTab" unique_id=872043499]
+layout_mode = 2
+text = "Select Desktop Wallpaper"
+
+[node name="AboutTab" type="VBoxContainer" parent="MainContent/TabContents" unique_id=1923368681]
+layout_mode = 2
+
+[node name="AboutLabel" type="Label" parent="MainContent/TabContents/AboutTab" unique_id=1492752250]
+layout_mode = 2

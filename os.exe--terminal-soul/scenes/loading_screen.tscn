@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://caqsp2v8buodr"]
+
+[ext_resource type="Script" uid="uid://5onaju7luctw" path="res://scripts/loading_screen.gd" id="1_hprjd"]
+[ext_resource type="FontFile" uid="uid://c0h3ryqxii3la" path="res://fonts/CutiveMono-Regular.ttf" id="2_5phy8"]
+[ext_resource type="Shader" uid="uid://ovgdsbtj38qk" path="res://scripts/new_shader.gdshader" id="2_ku3bi"]
+[ext_resource type="AudioStream" uid="uid://xbmpgfnkpflv" path="res://sounds/samuelfjohanns-computer-processing-sound-effect-01-122131.mp3" id="3_ku3bi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5phy8"]
+shader = ExtResource("2_ku3bi")
+shader_parameter/scanline_count = 300.0
+shader_parameter/scanline_opacity = 0.15
+shader_parameter/rgb_shift = 0.002
+shader_parameter/screen_blink = 0.015
+shader_parameter/switch_on_pct = 1.0
+shader_parameter/bar_speed = 0.5
+shader_parameter/bar_opacity = 0.25
+shader_parameter/bar_height = 0.03
+
+[node name="LoadingScreen" type="Control" unique_id=306982521]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hprjd")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2008868669]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
+[node name="SYSTEM INFUSION v1_04___ LOADING" type="RichTextLabel" parent="." unique_id=493067542]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -327.75
+offset_top = -68.5
+offset_right = 329.0
+offset_bottom = 77.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("2_5phy8")
+theme_override_font_sizes/normal_font_size = 65
+text = "SYSTEM INFUSION v1_04___ LOADING"
+horizontal_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=751165008]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -299.0
+offset_top = 87.15503
+offset_right = 299.0
+offset_bottom = 114.15503
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VHS_Overlay" type="ColorRect" parent="." unique_id=1581635076]
+material = SubResource("ShaderMaterial_5phy8")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=29526299]
+stream = ExtResource("3_ku3bi")
+autoplay = true

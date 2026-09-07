@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://bv012w66mxcdk"]
+
+[ext_resource type="Script" uid="uid://c1yinclh18i1p" path="res://scripts/defeat_scene.gd" id="1_7am6v"]
+[ext_resource type="Texture2D" uid="uid://cxb3xm01j2qhp" path="res://icons/lucid-origin_Stylized_2D_digital_art_dark_comic_book_illustration._Low_angle_view_from_behind-0.jpg" id="1_fatro"]
+[ext_resource type="FontFile" uid="uid://7m2p4oe6hcgn" path="res://fonts/ShareTechMono-Regular.ttf" id="3_30l2c"]
+
+[node name="DefeatScene" type="Control" unique_id=326905978]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7am6v")
+
+[node name="BackgroundArt" type="TextureRect" parent="." unique_id=243809134]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_fatro")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=470050433]
+
+[node name="DarkOverlay" type="ColorRect" parent="." unique_id=687658262]
+modulate = Color(0, 0, 0, 0.15686275)
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
+[node name="UIContainer" type="VBoxContainer" parent="." unique_id=1435278803]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="TitleLabel" type="Label" parent="UIContainer" unique_id=607894273]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_30l2c")
+
+[node name="ReasonLabel" type="Label" parent="UIContainer" unique_id=671421762]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_30l2c")
+
+[node name="RestartButton" type="Button" parent="UIContainer" unique_id=1385787173]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_30l2c")

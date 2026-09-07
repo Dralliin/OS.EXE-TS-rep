@@ -1,0 +1,225 @@
+[gd_scene format=3 uid="uid://4l1m0wglrku6"]
+
+[ext_resource type="Texture2D" uid="uid://d4buxf8y8syhh" path="res://icons/os background.jpg" id="1_72ne2"]
+[ext_resource type="Script" uid="uid://btp0nm8wfvsah" path="res://scripts/os.gd" id="1_cd0u5"]
+[ext_resource type="Texture2D" uid="uid://cawsm73u23qts" path="res://icons/grid_view_48dp_E3E3E3_FILL0_wght400_GRAD0_opsz48.png" id="2_nd5ct"]
+[ext_resource type="Script" uid="uid://ysd6rylx1htm" path="res://scripts/start.gd" id="3_7pos1"]
+[ext_resource type="Texture2D" uid="uid://xou6svv5b2gi" path="res://icons/search_48dp_E3E3E3_FILL0_wght400_GRAD0_opsz48.png" id="3_nvlvj"]
+[ext_resource type="Texture2D" uid="uid://4fp0oxe08he5" path="res://icons/files_48dp_E3E3E3_FILL0_wght400_GRAD0_opsz48.png" id="4_7pos1"]
+[ext_resource type="Texture2D" uid="uid://cp86n8sjw78uu" path="res://icons/settings_48dp_E3E3E3_FILL0_wght400_GRAD0_opsz48.png" id="5_5hobq"]
+[ext_resource type="Script" uid="uid://diu0udlj0mq7i" path="res://scripts/files.gd" id="7_bp7kc"]
+[ext_resource type="Texture2D" uid="uid://dkomisg0tfr27" path="res://icons/terminal_48dp_E3E3E3_FILL0_wght400_GRAD0_opsz48.png" id="7_s2aqv"]
+[ext_resource type="Script" uid="uid://bbkt00ns710ra" path="res://scripts/start_menu.gd" id="8_14m1s"]
+[ext_resource type="Texture2D" uid="uid://dh1isr3npb1x3" path="res://icons/captive_portal_48dp_E3E3E3_FILL0_wght400_GRAD0_opsz48.png" id="8_y55b8"]
+[ext_resource type="Texture2D" uid="uid://i1ghsh5ly8is" path="res://icons/hard_drive_48dp_E3E3E3_FILL0_wght400_GRAD0_opsz48.png" id="9_8i7xe"]
+[ext_resource type="Texture2D" uid="uid://1cp3n2ugnntv" path="res://icons/health_and_safety_48dp_E3E3E3_FILL0_wght400_GRAD0_opsz48.png" id="10_cd0u5"]
+[ext_resource type="Texture2D" uid="uid://hfy55cas0sea" path="res://icons/settings_power_48dp_E3E3E3_FILL0_wght400_GRAD0_opsz48.png" id="11_y55b8"]
+[ext_resource type="PackedScene" uid="uid://csx2tafq7uma2" path="res://scenes/terminal_window.tscn" id="13_14m1s"]
+[ext_resource type="Script" uid="uid://b67gg58615w1u" path="res://scripts/search_panel.gd" id="15_ldvm6"]
+[ext_resource type="PackedScene" uid="uid://dshnthfr1n5aj" path="res://scenes/file_manager_window.tscn" id="16_joci4"]
+[ext_resource type="PackedScene" uid="uid://c4k0rdxmvyyvm" path="res://scenes/settings_window.tscn" id="18_mxeek"]
+[ext_resource type="Shader" uid="uid://1nbvhk1a7h4k" path="res://scripts/os.gdshader" id="18_nto4e"]
+[ext_resource type="AudioStream" uid="uid://c6h2xu7iurmag" path="res://sounds/2cb345d607376b6.mp3" id="19_3361g"]
+[ext_resource type="Script" uid="uid://b5kyunhn60y56" path="res://scripts/tutorial_manager.gd" id="21_ky4p7"]
+[ext_resource type="PackedScene" uid="uid://cq1shcjmgyoc0" path="res://scenes/virus_dialog.tscn" id="21_o8u01"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s2aqv"]
+bg_color = Color(0.047058824, 0.047058824, 0.047058824, 0.8235294)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y55b8"]
+bg_color = Color(0.0049177883, 0.00491779, 0.004917784, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3361g"]
+shader = ExtResource("18_nto4e")
+shader_parameter/scanline_strength = 0.12
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/brightness = 1.0
+shader_parameter/switch_on_pct = 1.0
+
+[node name="OS" type="Node2D" unique_id=304479891]
+script = ExtResource("1_cd0u5")
+
+[node name="DesktopContent" type="Control" parent="." unique_id=41634029]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Wallpaper" type="TextureRect" parent="DesktopContent" unique_id=1112696276]
+layout_mode = 0
+offset_right = 1927.0
+offset_bottom = 1080.0
+texture = ExtResource("1_72ne2")
+
+[node name="Taskbar" type="Panel" parent="DesktopContent" unique_id=1101616216]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1035.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_s2aqv")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DesktopContent/Taskbar" unique_id=1423689389]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 45.0
+
+[node name="Start" type="TextureButton" parent="DesktopContent/Taskbar/HBoxContainer" unique_id=1848670758]
+layout_mode = 2
+texture_normal = ExtResource("2_nd5ct")
+script = ExtResource("3_7pos1")
+
+[node name="Search" type="TextureButton" parent="DesktopContent/Taskbar/HBoxContainer" unique_id=629021248]
+layout_mode = 2
+texture_normal = ExtResource("3_nvlvj")
+
+[node name="Files" type="TextureButton" parent="DesktopContent/Taskbar/HBoxContainer" unique_id=2083526569]
+layout_mode = 2
+texture_normal = ExtResource("4_7pos1")
+script = ExtResource("7_bp7kc")
+
+[node name="Settings" type="TextureButton" parent="DesktopContent/Taskbar/HBoxContainer" unique_id=568280931]
+layout_mode = 2
+texture_normal = ExtResource("5_5hobq")
+
+[node name="TerminalTaskButton" type="TextureButton" parent="DesktopContent/Taskbar/HBoxContainer" unique_id=1521439188]
+visible = false
+layout_mode = 2
+texture_normal = ExtResource("7_s2aqv")
+
+[node name="StartMenu" type="Panel" parent="DesktopContent" unique_id=756074600]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_top = 535.0
+offset_right = 500.0
+offset_bottom = 1035.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_y55b8")
+script = ExtResource("8_14m1s")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DesktopContent/StartMenu" unique_id=312199697]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -250.0
+offset_right = 109.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Terminal" type="TextureButton" parent="DesktopContent/StartMenu/HBoxContainer" unique_id=1903613707]
+layout_mode = 2
+texture_normal = ExtResource("7_s2aqv")
+
+[node name="Browser" type="TextureButton" parent="DesktopContent/StartMenu/HBoxContainer" unique_id=1925782562]
+layout_mode = 2
+texture_normal = ExtResource("8_y55b8")
+
+[node name="Harddrive" type="TextureButton" parent="DesktopContent/StartMenu/HBoxContainer" unique_id=1486131093]
+layout_mode = 2
+texture_normal = ExtResource("9_8i7xe")
+
+[node name="Antivirus" type="TextureButton" parent="DesktopContent/StartMenu/HBoxContainer" unique_id=1769592366]
+layout_mode = 2
+texture_normal = ExtResource("10_cd0u5")
+
+[node name="On_Off" type="TextureButton" parent="DesktopContent/StartMenu" unique_id=286867828]
+layout_mode = 0
+offset_left = 419.0
+offset_top = 430.0
+offset_right = 467.0
+offset_bottom = 478.0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture_normal = ExtResource("11_y55b8")
+
+[node name="TerminalWindow" parent="DesktopContent" unique_id=1137116471 instance=ExtResource("13_14m1s")]
+visible = false
+layout_mode = 1
+offset_left = 460.0
+offset_top = 290.0
+offset_right = 1460.0
+offset_bottom = 790.0
+
+[node name="SearchPanel" type="NinePatchRect" parent="DesktopContent" unique_id=1846218818]
+visible = false
+layout_mode = 0
+offset_left = 52.0
+offset_top = 995.0
+offset_right = 352.0
+offset_bottom = 1035.0
+script = ExtResource("15_ldvm6")
+
+[node name="SearchInput" type="LineEdit" parent="DesktopContent/SearchPanel" unique_id=1897913965]
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 40.0
+placeholder_text = "Search..."
+
+[node name="EnterButton" type="Button" parent="DesktopContent/SearchPanel" unique_id=166166426]
+layout_mode = 0
+offset_left = 220.0
+offset_right = 300.0
+offset_bottom = 40.0
+text = "Enter"
+
+[node name="FileManagerWindow" parent="DesktopContent" unique_id=863105007 instance=ExtResource("16_joci4")]
+visible = false
+layout_mode = 1
+offset_left = 465.0
+offset_top = 257.0
+offset_right = 465.0
+offset_bottom = 257.0
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="SettingsWindow" parent="DesktopContent" unique_id=531011518 instance=ExtResource("18_mxeek")]
+visible = false
+layout_mode = 1
+offset_left = 415.0
+offset_top = 238.0
+offset_right = 1495.0
+offset_bottom = 828.0
+
+[node name="Retro_OS_Display" type="ColorRect" parent="." unique_id=1527214413]
+material = SubResource("ShaderMaterial_3361g")
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+
+[node name="SoundON" type="AudioStreamPlayer" parent="." unique_id=1303868320]
+stream = ExtResource("19_3361g")
+autoplay = true
+
+[node name="TutorialManager" type="Node" parent="." unique_id=402394138]
+script = ExtResource("21_ky4p7")
+
+[node name="GuidePlayer" type="AudioStreamPlayer" parent="." unique_id=1981924697]
+
+[node name="VirusDialog" parent="." unique_id=1552959652 instance=ExtResource("21_o8u01")]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -246.0
+offset_top = -200.0
+offset_right = 246.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[editable path="VirusDialog"]

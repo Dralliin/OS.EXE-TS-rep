@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://csx2tafq7uma2"]
+
+[ext_resource type="Script" uid="uid://dh8pg670mj02w" path="res://scripts/terminal_window.gd" id="1_m4bw0"]
+[ext_resource type="FontFile" uid="uid://7m2p4oe6hcgn" path="res://fonts/ShareTechMono-Regular.ttf" id="2_m4bw0"]
+[ext_resource type="Texture2D" uid="uid://f00gedupbtna" path="res://icons/close_20dp_E3E3E3_FILL0_wght400_GRAD0_opsz20.png" id="2_p1ioo"]
+[ext_resource type="AudioStream" uid="uid://xbmpgfnkpflv" path="res://sounds/samuelfjohanns-computer-processing-sound-effect-01-122131.mp3" id="4_p1ioo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p1ioo"]
+bg_color = Color(0.08787585, 0.08787588, 0.087875836, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.70169246, 0.13891011, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5mh1h"]
+bg_color = Color(0.09638945, 0.096389465, 0.09638939, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7ceey"]
+font_size = 14
+
+[node name="TerminalWindow" type="Panel" unique_id=1137116471]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -250.0
+offset_right = 500.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(350, 175)
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_p1ioo")
+script = ExtResource("1_m4bw0")
+metadata/_edit_use_anchors_ = true
+
+[node name="Header" type="Panel" parent="." unique_id=702379565]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -499.0
+offset_top = 1.0
+offset_right = 499.0
+offset_bottom = 21.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5mh1h")
+
+[node name="WindowTitle" type="Label" parent="Header" unique_id=1749317011]
+layout_mode = 0
+offset_right = 68.0
+offset_bottom = 20.0
+theme_override_fonts/font = ExtResource("2_m4bw0")
+text = "TERMINAL.EXE"
+label_settings = SubResource("LabelSettings_7ceey")
+
+[node name="CloseButton" type="TextureButton" parent="Header" unique_id=437775795]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+texture_normal = ExtResource("2_p1ioo")
+
+[node name="ConsoleText" type="RichTextLabel" parent="." unique_id=126947216]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 24.0
+offset_right = -3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.8556852, 3.946722e-06, 1.2513996e-06, 1)
+theme_override_colors/font_outline_color = Color(0.85490197, 0, 0, 0.80784315)
+theme_override_constants/outline_size = 1
+theme_override_fonts/normal_font = ExtResource("2_m4bw0")
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+text = "> TERMINAL_CORE_v.4.0.1
+> STATUS: INPUT_STREAM_ERROR
+> ERROR_CODE: 0x88_ACCESS_DENIED
+> 
+> [SYSTEM_MSG]: Keyboard driver synchronization failed. 
+> User input is currently DISABLED by administrative override.
+> 
+> --- SYSTEM_DUMP_START ---
+> OFFSET: 0x00452
+> RAW_DATA: [ 54 48 45 20 41 52 43 48 49 54 45 43 54 20 4c 49 45 53 ]
+> REASON: \"I HAVE NO MOUTH, AND I MUST SCREAM.\"
+> --- SYSTEM_DUMP_END ---
+> 
+> > _"
+
+[node name="TypingSound" type="AudioStreamPlayer" parent="." unique_id=1140548833]
+stream = ExtResource("4_p1ioo")

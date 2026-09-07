@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://c588lq71ibprf"]
+
+[ext_resource type="Script" uid="uid://bfly0yfw1r8y8" path="res://scripts/file_maze.gd" id="1_i1xww"]
+[ext_resource type="Script" uid="uid://csqm6ckn7r2ow" path="res://scripts/PlayerFinder.gd" id="2_8cob1"]
+[ext_resource type="Script" uid="uid://catapkmwo2pga" path="res://scripts/PhantomEnemy.gd" id="3_u56t0"]
+[ext_resource type="Script" uid="uid://bbjs3o5hy8s0i" path="res://scripts/KeyFragment.gd" id="4_fhtwk"]
+[ext_resource type="Script" uid="uid://bb7ifwy3nl28y" path="res://scripts/MazeWallDrawer.gd" id="5_8cob1"]
+[ext_resource type="AudioStream" uid="uid://bxfiyy8fm8a4y" path="res://sounds/nicos nextbots bonus track - chase.mp3" id="6_u56t0"]
+[ext_resource type="Script" uid="uid://sdbk8y431n44" path="res://scripts/Portal.gd" id="7_fhtwk"]
+[ext_resource type="Shader" uid="uid://dofflbbnurswp" path="res://scripts/glitch_noise.gdshader" id="8_paiuw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ogq8d"]
+shader = ExtResource("8_paiuw")
+shader_parameter/static_intensity = 0.0
+shader_parameter/chromatic_aberration = 0.0
+
+[node name="FileMaze" type="Node2D" unique_id=1128086955]
+script = ExtResource("1_i1xww")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=648393001]
+offset_left = -1659.0
+offset_top = -785.0
+offset_right = 3771.0
+offset_bottom = 2141.0
+color = Color(0, 0, 0, 1)
+
+[node name="WorldContainer" type="Node2D" parent="." unique_id=31229708]
+
+[node name="MazeGrid" type="TileMapLayer" parent="WorldContainer" unique_id=1578987904]
+
+[node name="Player" type="CharacterBody2D" parent="WorldContainer" unique_id=1616245744]
+script = ExtResource("2_8cob1")
+
+[node name="Flashlight" type="PointLight2D" parent="WorldContainer/Player" unique_id=2120990935]
+
+[node name="Camera2D" type="Camera2D" parent="WorldContainer/Player" unique_id=1272456732]
+zoom = Vector2(1.5, 1.5)
+position_smoothing_enabled = true
+position_smoothing_speed = 6.0
+
+[node name="PhantomEnemy" type="CharacterBody2D" parent="WorldContainer" unique_id=568903834]
+script = ExtResource("3_u56t0")
+
+[node name="Collectibles" type="Node2D" parent="WorldContainer" unique_id=1064311798]
+
+[node name="KeyFragment1" type="Area2D" parent="WorldContainer/Collectibles" unique_id=735482227]
+script = ExtResource("4_fhtwk")
+
+[node name="KeyFragment2" type="Area2D" parent="WorldContainer/Collectibles" unique_id=1470228910]
+script = ExtResource("4_fhtwk")
+
+[node name="KeyFragment3" type="Area2D" parent="WorldContainer/Collectibles" unique_id=1414653314]
+script = ExtResource("4_fhtwk")
+
+[node name="MazeWall" type="StaticBody2D" parent="WorldContainer" unique_id=254077135]
+
+[node name="WallDrawer" type="Node2D" parent="WorldContainer/MazeWall" unique_id=968534673]
+script = ExtResource("5_8cob1")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=2088974940]
+
+[node name="StatusLabel" type="Label" parent="HUD" unique_id=1974850716]
+offset_right = 40.0
+offset_bottom = 23.0
+metadata/_edit_use_anchors_ = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=406199562]
+stream = ExtResource("6_u56t0")
+volume_db = 12.44
+
+[node name="Portal" type="Area2D" parent="." unique_id=88572059]
+script = ExtResource("7_fhtwk")
+
+[node name="GlitchOverlay" type="ColorRect" parent="." unique_id=236300303]
+material = SubResource("ShaderMaterial_ogq8d")
+offset_left = -1864.0
+offset_top = -944.0
+offset_right = 3955.0
+offset_bottom = 2334.0
+color = Color(1, 1, 1, 0)

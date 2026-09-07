@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://bebwbhd5h7efj"]
+
+[ext_resource type="Script" uid="uid://b5004va7hdihp" path="res://scripts/warning_screen.gd" id="1_55daq"]
+[ext_resource type="FontFile" uid="uid://7m2p4oe6hcgn" path="res://fonts/ShareTechMono-Regular.ttf" id="2_2c1tb"]
+[ext_resource type="AudioStream" uid="uid://mtgov048rki5" path="res://sounds/OSEXETS Start1.wav" id="3_2c1tb"]
+
+[node name="WarningScreen" type="Control" unique_id=101550124]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_55daq")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1914860857]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
+[node name="WarningText" type="RichTextLabel" parent="." unique_id=2009540874]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -430.0
+offset_top = -186.75
+offset_right = 430.0
+offset_bottom = 186.75
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("2_2c1tb")
+theme_override_font_sizes/normal_font_size = 27
+bbcode_enabled = true
+text = "This game is a psychological thriller that contains flashing lights, 
+distorting visual effects, and themes of digital paranoia.
+
+It may not be suitable for individuals with photosensitive epilepsy, 
+heart conditions, or high anxiety."
+horizontal_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=715582510]
+stream = ExtResource("3_2c1tb")
+volume_db = -80.0
+autoplay = true
+bus = &"HorrorVoice"

@@ -1,0 +1,42 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="OS.EXE: Terminal Soul"
+run/main_scene="uid://bebwbhd5h7efj"
+config/features=PackedStringArray("4.7", "Forward Plus")
+
+[audio]
+
+buses/default_bus_layout="uid://cum2jubwgp876"
+
+[autoload]
+
+GameManager="*uid://blnlwjpky08wu"
+DialogueBox="*uid://cwauxphs5icgc"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=3
+
+[dotnet]
+
+project/assembly_name="OS.EXE- Terminal Soul"
+
+[physics]
+
+3d/physics_engine="Jolt Physics"
+
+[rendering]
+
+rendering_device/driver.windows="d3d12"

@@ -1,0 +1,142 @@
+[gd_scene format=3 uid="uid://chjknf4clqgkx"]
+
+[ext_resource type="Script" uid="uid://bbehwemvlu0gs" path="res://scripts/chess_game_scene.gd" id="1_fanf2"]
+[ext_resource type="Shader" uid="uid://ckewjh5s456gs" path="res://scripts/chess_game_scene2.gdshader" id="2_eheqb"]
+[ext_resource type="Shader" uid="uid://cx7ae7uflcyoi" path="res://scripts/chess_game_scene.gdshader" id="2_tqdph"]
+[ext_resource type="Script" uid="uid://cwo3tejt6djxd" path="res://scripts/MatrixCodeBackground.gd" id="3_pawav"]
+[ext_resource type="Shader" uid="uid://bl7y5kpe0ogeu" path="res://scripts/chess_game_scene3.gdshader" id="4_nfx0o"]
+[ext_resource type="AudioStream" uid="uid://ekv81ngkdwd7" path="res://sounds/I AM NOT AFRAID.mp3" id="5_50wxr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tqdph"]
+shader = ExtResource("2_eheqb")
+shader_parameter/bg_dark = Color(0.01, 0.02, 0.04, 1)
+shader_parameter/bg_light = Color(0.04, 0.08, 0.12, 1)
+shader_parameter/grid_color = Color(0.12, 0.18, 0.25, 1)
+shader_parameter/alert_color = Color(0.65, 0.08, 0.12, 0.4)
+shader_parameter/glitch_intensity = 0.2
+shader_parameter/pulse_speed = 1.2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fanf2"]
+bg_color = Color(2.1833475e-05, 2.1833475e-05, 2.183347e-05, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tqdph"]
+bg_color = Color(0.10039029, 0.3014638, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ogq8d"]
+shader = ExtResource("2_tqdph")
+shader_parameter/glitch_intensity = 0.0
+shader_parameter/color_split = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eg0p3"]
+shader = ExtResource("4_nfx0o")
+shader_parameter/flash_progress = 0.0
+
+[node name="ChessGameScene" type="Control" unique_id=1209840986]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fanf2")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1236405041]
+material = SubResource("ShaderMaterial_tqdph")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("3_pawav")
+
+[node name="ChessGrid" type="GridContainer" parent="." unique_id=1227508900]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -256.0
+offset_right = 256.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 8
+
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=1313373404]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1488.0
+offset_top = -1015.0
+offset_right = -39.0
+offset_bottom = -988.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_fanf2")
+theme_override_styles/fill = SubResource("StyleBoxFlat_tqdph")
+value = 100.0
+
+[node name="TurnTimer" type="Timer" parent="." unique_id=489659392]
+autostart = true
+
+[node name="PlayerTimerLabel" type="Label" parent="." unique_id=174097919]
+layout_mode = 0
+offset_left = 1500.0
+offset_top = 900.0
+offset_right = 1540.0
+offset_bottom = 923.0
+
+[node name="VirusTimerLabel" type="Label" parent="." unique_id=116652004]
+layout_mode = 0
+offset_left = 1500.0
+offset_top = 150.0
+offset_right = 1540.0
+offset_bottom = 173.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=287796602]
+
+[node name="GlitchColorRect" type="ColorRect" parent="." unique_id=463511413]
+material = SubResource("ShaderMaterial_ogq8d")
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+
+[node name="DeathFlashColorRect" type="ColorRect" parent="." unique_id=901970453]
+visible = false
+material = SubResource("ShaderMaterial_eg0p3")
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+
+[node name="WinPopupContainer" type="PanelContainer" parent="." unique_id=1260284077]
+visible = false
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+
+[node name="VBox" type="VBoxContainer" parent="WinPopupContainer" unique_id=2038121008]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="WinPopupContainer/VBox" unique_id=1414775262]
+layout_mode = 2
+
+[node name="SubLabel" type="Label" parent="WinPopupContainer/VBox" unique_id=2124577797]
+layout_mode = 2
+
+[node name="ContinueButton" type="Button" parent="WinPopupContainer/VBox" unique_id=1450699538]
+layout_mode = 2
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=1996829841]
+stream = ExtResource("5_50wxr")
+volume_db = -11.012
+autoplay = true
